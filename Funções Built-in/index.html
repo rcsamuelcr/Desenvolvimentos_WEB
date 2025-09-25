@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Funções Built-in do JavaScript</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Funções Built-in do JavaScript</h1>
+        <p>Um guia didático com explicações detalhadas e exemplos práticos.</p>
+    </header>
+
+    <main>
+        <!-- Funções Globais -->
+        <section>
+            <h2>Funções Globais</h2>
+            <p><strong>O que são:</strong></p>
+            <p>
+                Funções globais são utilitários já disponíveis em qualquer programa JavaScript — você não precisa
+                <code>importar</code> nada para usá-las. No navegador, elas fazem parte do objeto global
+                (<code>window</code> ou <code>globalThis</code>). São
+                ferramentas “de uso geral” que facilitam tarefas comuns como:
+            </p>
+            <ul>
+                <li>Converter textos em números;</li>
+                <li>Testar valores;</li>
+                <li>Mostrar mensagens no console;</li>
+                <li>Codificar URLs.</li>
+            </ul>
+            <h4>As funções globais são:</h4>
+            <h4>console.log()</h4>
+            <p>Exibe mensagens no console, ideal para testes e depuração de código.</p>
+            <pre><code>console.log("Olá, mundo!"); // Saída: Olá, mundo!</code></pre>
+            <h4>parseInt()</h4>
+            <p>Converte uma string em número inteiro. Caso encontre decimais, ignora a parte fracionária.</p>
+            <pre><code>console.log(parseInt("10"));   // 10
+      console.log(parseInt("10.5")); // 10</code></pre>
+            <h4>parseFloat()</h4>
+            <p>Converte uma string em número decimal (mantendo a parte fracionária).</p>
+            <pre><code>console.log(parseFloat("10.5")); // 10.5</code></pre>
+            <h4>isNaN()</h4>
+            <p>Verifica se o valor informado <b>não é um número</b>.</p>
+            <pre><code>console.log(isNaN("abc")); // true
+      console.log(isNaN(123));   // false</code></pre>
+            <h4>isFinite()</h4>
+            <p>Retorna <code>true</code> se o valor for um número finito.</p>
+            <pre><code>console.log(isFinite(100));     // true
+      console.log(isFinite(Infinity)); // false</code></pre>
+            <h4>encodeURI() e decodeURI()</h4>
+            <p>Servem para codificar e decodificar URLs, garantindo que caracteres especiais sejam tratados
+                corretamente.</p>
+            <pre><code>let url = "https://site.com/página teste";
+      let encoded = encodeURI(url);
+      console.log(encoded); // https://site.com/p%C3%A1gina%20teste
+      
+      let decoded = decodeURI(encoded);
+      console.log(decoded); // https://site.com/página teste</code></pre>
+        </section>
+
+        <!-- Arrays -->
+
+        <section>
+            <h2>Funções de Manipulação de Arrays</h2>
+            <p><strong>O que é um arry:</strong></p>
+            <p>
+                Um array é uma coleção ordenada de valores (lista). Cada elemento tem uma posição (índice) que começa em
+                0: o primeiro item está em array[0], o segundo em array[1], etc. Pense num armário com gavetas numeradas
+                — cada gaveta guarda um item.
+            </p>
+            <p><strong>Para que servem os métodos:</strong></p>
+            <p>
+                Os métodos dos arrays são funções prontas que permitem adicionar, remover, procurar e transformar os
+                itens de forma prática, sem ter que escrever tudo do zero.
+            </p>
+            <h4>As funções de manipulação de arrays são:</h4>
+            <h4>push()</h4>
+            <p>Adiciona elementos ao final do array.</p>
+            <pre><code>let frutas = ["maçã", "banana"];
+      frutas.push("laranja");
+      console.log(frutas); // ["maçã", "banana", "laranja"]</code></pre>
+            <h4>pop()</h4>
+            <p>Remove o último elemento do array.</p>
+            <pre><code>frutas.pop();
+      console.log(frutas); // ["maçã", "banana"]</code></pre>
+            <h4>shift()</h4>
+            <p>Remove o primeiro elemento do array.</p>
+            <pre><code>frutas.shift();
+      console.log(frutas); // ["banana"]</code></pre>
+            <h4>unshift()</h4>
+            <p>Adiciona elementos no início do array.</p>
+            <pre><code>frutas.unshift("uva");
+      console.log(frutas); // ["uva", "banana"]</code></pre>
+            <h4>map()</h4>
+            <p>Cria um novo array aplicando uma função a cada elemento.</p>
+            <pre><code>let numeros = [1, 2, 3];
+      let dobro = numeros.map(n => n * 2);
+      console.log(dobro); // [2, 4, 6]</code></pre>
+            <h4>filter()</h4>
+            <p>Filtra os elementos que satisfazem uma condição.</p>
+            <pre><code>let pares = numeros.filter(n => n % 2 === 0);
+      console.log(pares); // [2]</code></pre>
+            <h4>reduce()</h4>
+            <p>Reduz o array a um único valor, acumulando os resultados.</p>
+            <pre><code>let soma = numeros.reduce((acc, n) => acc + n, 0);
+      console.log(soma); // 6</code></pre>
+        </section>
+
+        <!-- Datas -->
+
+        <section>
+            <h2>Funções de Manipulação de Datas</h2>
+            <p><strong>O que são:</strong></p>
+            <p>
+                <code>Date</code> representa um ponto no tempo: data e hora. Internamente o JavaScript trabalha com
+                milissegundos a
+                partir de 1º de janeiro de 1970 UTC (o “epoch”), mas a API permite que você veja ano, mês, dia, hora
+                local, etc.
+            </p>
+            <p><strong>Servem para:</strong></p>
+            <ul>
+                <li>Registrar quando algo aconteceu (ex.: hora de envio de um formulário).</li>
+                <li>Calcular diferenças entre datas (ex.: idade, tempo decorrido);</li>
+                <li>Exibir data/hora formatada para o usuário.</li>
+            </ul>
+            <h4>As funções globais são:</h4>
+            <h4>Date.now()</h4>
+            <p>Retorna os milissegundos desde 1º de janeiro de 1970 (timestamp).</p>
+            <pre><code>console.log(Date.now());</code></pre>
+            <h4>getFullYear()</h4>
+            <p>Retorna o ano da data.</p>
+            <pre><code>let hoje = new Date();
+      console.log(hoje.getFullYear()); // 2025</code></pre>
+            <h4>getMonth()</h4>
+            <p>Retorna o mês (0 = Janeiro, 11 = Dezembro).</p>
+            <pre><code>console.log(hoje.getMonth());</code></pre>
+            <h4>getDay()</h4>
+            <p>Retorna o dia da semana (0 = Domingo, 6 = Sábado).</p>
+            <pre><code>console.log(hoje.getDay());</code></pre>
+            <h4>getHours()</h4>
+            <p>Retorna a hora atual.</p>
+            <pre><code>console.log(hoje.getHours());</code></pre>
+        </section>
+
+        <!-- Matemática -->
+
+        <section>
+            <h2>Funções Matemáticas (Math)</h2>
+            <p><strong>O que são:</strong></p>
+            <p><code>Math</code> é uma coleção (namespace) de funções e constantes matemáticas. Não se instancia: você
+                chama
+                <code>Math.sqrt()</code>, <code>Math.random()</code> etc. Ele traz operações prontas para cálculos que
+                seriam chatos de implementar.
+            <p><strong>Servem para:</strong></p>
+            <ul>
+                <li>Cálculos matemáticos em jogos, física, estatística, processamento (raiz, potência);</li>
+                <li>Arredondamentos (para mostrar valores com casas decimais);</li>
+                <li>Geração de números aleatórios (ex.: simuladores, jogos).</li>
+            </ul>
+            <h4>As funções matemáticas são:</h4>
+            <h4>Math.sqrt()</h4>
+            <p>Calcula a raiz quadrada.</p>
+            <pre><code>console.log(Math.sqrt(16)); // 4</code></pre>
+            <h4>Math.pow()</h4>
+            <p>Calcula a potência (base, expoente).</p>
+            <pre><code>console.log(Math.pow(2, 3)); // 8</code></pre>
+            <h4>Math.random()</h4>
+            <p>Gera um número aleatório entre 0 e 1.</p>
+            <pre><code>console.log(Math.random());</code></pre>
+            <h4>Math.floor()</h4>
+            <p>Arredonda para baixo.</p>
+            <pre><code>console.log(Math.floor(4.9)); // 4</code></pre>
+            <h4>Math.ceil()</h4>
+            <p>Arredonda para cima.</p>
+            <pre><code>console.log(Math.ceil(4.1)); // 5</code></pre>
+        </section>
+
+        <!-- Strings -->
+
+        <section>
+            <h2>Funções de Manipulação de Strings</h2>
+            <p><strong>O que é uma String:</strong></p>
+            <p>
+                Uma string é uma sequência de caracteres — texto. Em JavaScript, strings são imutáveis: qualquer método
+                que “modifique” uma string na verdade cria uma nova string.
+            </p>
+            <p><strong>Para que servem os métodos de string:</strong></p>
+            <ul>
+                <li>Transformar (<code>ex.: toLowerCase()</code>, <code>toUpperCase()</code>), útil para comparar textos sem diferenciar maiúsculas/minúsculas;</li>
+                <li>Pegar pedaços (<code>substring()</code>), útil para extrair partes de uma entrada;</li>
+                <li>Substituir texto (<code>replace()</code>), validar formatos e limpar entradas do usuário;</li>
+                <li>Medir (<code>length</code>), importante para ver se a senha tem o tamanho mínimo etc.</li>
+            </ul>
+            <h4>toLowerCase()</h4>
+            <p>Transforma todas as letras em minúsculas.</p>
+            <pre><code>console.log("JavaScript".toLowerCase()); // javascript</code></pre>
+            <h4>toUpperCase()</h4>
+            <p>Transforma todas as letras em maiúsculas.</p>
+            <pre><code>console.log("JavaScript".toUpperCase()); // JAVASCRIPT</code></pre>
+            <h4>length</h4>
+            <p>Retorna o número de caracteres da string.</p>
+            <pre><code>console.log("Hello".length); // 5</code></pre>
+            <h4>substring()</h4>
+            <p>Extrai uma parte da string.</p>
+            <pre><code>let texto = "Programar é divertido";
+      console.log(texto.substring(0, 9)); // Programar</code></pre>
+            <h4>replace()</h4>
+            <p>Substitui parte de uma string por outra.</p>
+            <pre><code>console.log("Olá, João".replace("João", "Maria")); 
+      // "Olá, Maria"</code></pre>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2025 - Todos os direitos reservados rcsamuelcr
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empty Values em JavaScript</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Empty Values em JavaScript</h1>
+    </header>
+
+    <main>
+        <p>Em JavaScript, um "empty value" representa a ausência de um valor útil ou significativo. Esses valores são
+            importantes para verificar se uma variável está vazia, indefinida ou nula.</p>
+
+        <h2>Principais Empty Values em JavaScript</h2>
+        <ul>
+            <li><code>""</code> — string vazia</li>
+            <li><code>0</code> — número zero</li>
+            <li><code>null</code> — valor intencionalmente vazio</li>
+            <li><code>undefined</code> — valor não atribuído</li>
+            <li><code>false</code> — valor booleano falso</li>
+            <li><code>NaN</code> — "Not a Number"</li>
+            <li><code>[]</code> — array vazio</li>
+            <li><code>{}</code> — objeto vazio</li>
+        </ul>
+
+        <h2>Exemplo de verificação de Empty Values</h2>
+        <p>Você pode usar o operador <code>!</code> para verificar se um valor é "falsy" (considerado vazio ou falso):
+        </p>
+
+        <pre><code>
+// Exemplo de diferentes valores vazios
+const valores = ["", 0, null, undefined, false, NaN];
+
+valores.forEach(valor => {
+  if (!valor) {
+    console.log(`Valor vazio detectado:`, valor);
+  }
+});
+    </code></pre>
+
+        <h2>Not a Number</h2>
+        <p>Em JavaScript, um valor é considerado tipo de dado que representa um valor numérico indefinido ou não
+            representável. Geralmente um NaN surge de:</p>
+
+        <ul>
+            <li><strong>Conversões de números com falha:</strong> <br> Tentativa de converter uma string que não representa
+                um número válido usando funções como parseInt()ou parseFloat().</li>
+            <pre><code>console.log(parseInt("hello")); // NaN </code></pre>
+
+            <li><strong>Operações matemáticas inválidas:</strong> Operações que não produzem um número real como:</li>
+                <ul>
+                    <li>Dividir zero por zero;</li>
+                    <li>Tirar a raiz quadrada de um número negativo;</li>
+                    <li>Realizar operações consigo <code>NaN</code>  mesmo.</li>
+                </ul>
+            <pre><code>
+    console.log(0 / 0); // NaN
+    console.log(Math.sqrt(-1)); // NaN
+    console.log(NaN + 5); // NaN
+            </code></pre>
+        </ul>
+
+        <p><Strong>Comparação</Strong> <code>NaN</code> única porque não é igual a si mesma, mesmo quando se usa igualdade estrita (===).</p>
+        <pre><code>console.log(NaN === NaN); // false</code></pre>
+
+        <h2>Dica importante</h2>
+        <p>Embora <code>null</code> e <code>undefined</code> sejam ambos "valores vazios", eles têm significados
+            diferentes:</p>
+        <ul>
+            <li><code>null</code> → valor intencionalmente vazio (setado pelo programador)</li>
+            <li><code>undefined</code> → valor ainda não definido (ex: variável não inicializada)</li>
+        </ul>
+
+        <pre><code>
+let nome;
+console.log(nome); // undefined
+
+let idade = null;
+console.log(idade); // null
+    </code></pre>
+
+    </main>
+
+    <footer>
+        &copy; 2025 - Todos os direitos reservados rcsamuelcr
+    </footer>
+</body>
+
+</html>
