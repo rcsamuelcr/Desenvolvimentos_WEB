@@ -49,16 +49,17 @@ valores.forEach(valor => {
             representável. Geralmente um NaN surge de:</p>
 
         <ul>
-            <li><strong>Conversões de números com falha:</strong> <br> Tentativa de converter uma string que não representa
+            <li><strong>Conversões de números com falha:</strong> <br> Tentativa de converter uma string que não
+                representa
                 um número válido usando funções como parseInt()ou parseFloat().</li>
             <pre><code>console.log(parseInt("hello")); // NaN </code></pre>
 
             <li><strong>Operações matemáticas inválidas:</strong> Operações que não produzem um número real como:</li>
-                <ul>
-                    <li>Dividir zero por zero;</li>
-                    <li>Tirar a raiz quadrada de um número negativo;</li>
-                    <li>Realizar operações consigo <code>NaN</code>  mesmo.</li>
-                </ul>
+            <ul>
+                <li>Dividir zero por zero;</li>
+                <li>Tirar a raiz quadrada de um número negativo;</li>
+                <li>Realizar operações consigo <code>NaN</code> mesmo.</li>
+            </ul>
             <pre><code>
     console.log(0 / 0); // NaN
     console.log(Math.sqrt(-1)); // NaN
@@ -66,7 +67,8 @@ valores.forEach(valor => {
             </code></pre>
         </ul>
 
-        <p><Strong>Comparação</Strong> <code>NaN</code> única porque não é igual a si mesma, mesmo quando se usa igualdade estrita (===).</p>
+        <p><Strong>Comparação</Strong> <code>NaN</code> única porque não é igual a si mesma, mesmo quando se usa
+            igualdade estrita (===).</p>
         <pre><code>console.log(NaN === NaN); // false</code></pre>
 
         <h2>Dica importante</h2>

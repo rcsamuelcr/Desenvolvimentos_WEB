@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manipulação em DOM</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Manipulação em DOM no JavaScript</h1>
+        <p>Um guia didático com explicações detalhadas e exemplos práticos.</p>
+    </header>
+
+    <main>
+        <h1 id="primeiro">Primeiro parágrafo</h1>
+
+        <h1 class="segundo">Segundo parágrafo</h1>
+
+        <div>
+            <h1 id="terceiro">Terceiro parágrafo</h1>
+        </div>
+
+        <script>
+            // Exemplo 1 - Inserindo um novo elemento antes de outro
+
+            let elementoAlvo = document.getElementById('terceiro'); // pega o h1 com id="terceiro"
+            let elementoPai = elementoAlvo.parentNode;  // pega o elemento pai do h1 com id="terceiro"(<div>)
+
+            // Cria um novo h1 e configura texto e estilo
+            let novoElemento = document.createElement('h1'); //Criando novo elemento
+            novoElemento.textContent = "Texto atribuído dinamicamente"; //Atribuindo um texto ao novo elemento criado
+            novoElemento.style.color = 'blue'; // Mexendo no css do elemento criado
+            novoElemento.style.fontSize = '3rem';
+
+            // Insere o novo h1 ANTES do elemento alvo
+            elementoPai.insertBefore(novoElemento, elementoAlvo); 
+            // Chamamos o pai e colocamos a função que queremos (insertBefore, replaceChild, removeChild, etc).
+            // Dentro das aspas da função colocamos o elemento novo e o elemento alvo, respectivamente.
+        </script>
+
+        <hr>
+
+        <!-- Explicando uso de <p> e <br> -->
+        <p>
+            Você pode escrever o parágrafo como bem entender,
+            basta colocar o conteúdo entre as tags &lt;p&gt; e &lt;/p&gt;.
+        </p>
+        <p>
+            Caso queira quebrar o texto em algum lugar específico,
+            basta colocar a tag &lt;br&gt;.
+        </p>
+        <p>
+            Desta forma, é possível quebrar o texto que está contido no mesmo parágrafo.
+        </p>
+
+        <!-- Imagem inicial -->
+        <img id="image" src="../images/logo-html5.png" alt="Logo do HTML5" width="150">
+
+        <!-- Botões que chamam funções JavaScript -->
+        <!-- Com a atributo "onclick" é possível acionar uma função do JS ao clicar no botão -->
+        <div>
+            <button type="button" onclick="Add_Paragrafo()">Adicionar Parágrafo</button>
+            <button type="button" onclick="Alterar_h1()">Alterar h1</button>
+            <button type="button" onclick="TrocarImage()">Trocar Imagem e Fundo</button>
+            <button type="button" onclick="Dark()">Modo Escuro</button>
+        </div>
+
+        <script>
+            
+            //  Exemplo 2 - Criar e adicionar um novo parágrafo
+             
+            function Add_Paragrafo() {
+                let novoElemento = document.createElement('p'); // cria <p>
+                let texto = document.createTextNode('Este é um texto inserido pelo JavaScript');
+                novoElemento.appendChild(texto); // insere o texto dentro do <p>
+
+                let elementoAlvo = document.getElementById('terceiro'); // referência de onde inserir
+                let elementoPai = elementoAlvo.parentNode; // o <div>
+
+                elementoPai.appendChild(novoElemento); // adiciona no final do pai
+            }
+
+            
+            //  Exemplo 3 - Substituir um elemento existente
+             
+            function Alterar_h1() {
+                let novoElemento2 = document.createElement('p');
+                novoElemento2.textContent = "Este parágrafo substituiu o antigo h1!";
+
+                let elementoAlvo = document.getElementById('primeiro'); // seleciona o h1 original
+                let elementoPai = elementoAlvo.parentNode;
+
+                elementoPai.replaceChild(novoElemento2, elementoAlvo); // troca os elementos
+            }
+
+            //  Exemplo 4 - Alterar atributos e estilo de imagem e body
+             
+            function TrocarImage() {
+                let img_scr = document.getElementById('image');
+
+                // Troca a imagem
+                img_scr.setAttribute('src', '../images/logo-css.png');
+                img_scr.setAttribute('alt', 'Logo do CSS');
+
+                // Altera o estilo do fundo da página
+                let body = document.querySelector('body');
+                body.style.backgroundImage = 'linear-gradient(92deg, #311db1, #0c0127)';
+                body.style.color = 'white';
+            }
+
+            
+            //  Exemplo 5 - Ativar modo escuro (Dark Mode)
+            
+            function Dark() {
+                let body = document.querySelector('body');
+                body.style.backgroundImage = 'none';
+                body.style.backgroundColor = 'black';
+                body.style.color = 'white';
+            }
+
+            
+            //  Exemplo 6 - Alterando estilo de um elemento específico
+            
+            let h1 = document.querySelector('.segundo');
+            h1.style.color = 'red';
+        </script>
+    </main>
+</body>
+
+</html>
