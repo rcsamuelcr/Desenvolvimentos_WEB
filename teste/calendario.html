@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Agenda - Calendário</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      background-color: #f5f7fa;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Barra lateral */
+    .sidebar {
+      width: 230px;
+      background-color: #2b3b52;
+      color: #fff;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-top-right-radius: 16px;
+      border-bottom-right-radius: 16px;
+    }
+
+    .sidebar h2 {
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .menu a {
+      display: block;
+      text-decoration: none;
+      color: #cfd8e3;
+      margin: 12px 0;
+      padding: 10px 15px;
+      border-radius: 8px;
+      transition: 0.2s;
+    }
+
+    .menu a:hover,
+    .menu a.active {
+      background-color: #3b4b66;
+      color: #fff;
+    }
+
+    /* Conteúdo principal */
+    .main {
+      flex: 1;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .calendar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .calendar-header h3 {
+      font-size: 1.5rem;
+      color: #1e2a3a;
+    }
+
+    .calendar-nav {
+      display: flex;
+      gap: 10px;
+    }
+
+    .calendar-nav button {
+      border: none;
+      background-color: #e3e8ef;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .calendar-nav button:hover {
+      background-color: #cbd5e1;
+    }
+
+    /* Calendário */
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 8px;
+      background-color: #fff;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    }
+
+    .day-name {
+      text-align: center;
+      font-weight: bold;
+      color: #4a5568;
+    }
+
+    .day {
+      text-align: center;
+      padding: 12px 0;
+      border-radius: 8px;
+      color: #334155;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .day:hover {
+      background-color: #e2e8f0;
+    }
+
+    .today {
+      background-color: #2563eb;
+      color: white;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <div>
+      <h2>Web Agenda</h2>
+      <div class="menu">
+        <a href="#" class="active">Calendário</a>
+        <a href="#">Eventos</a>
+        <a href="#">Perfil</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="calendar-header">
+      <h3>Outubro 2025</h3>
+      <div class="calendar-nav">
+        <button>&lt;</button>
+        <button>&gt;</button>
+      </div>
+    </div>
+
+    <div class="calendar-grid">
+      <div class="day-name">Dom</div>
+      <div class="day-name">Seg</div>
+      <div class="day-name">Ter</div>
+      <div class="day-name">Qua</div>
+      <div class="day-name">Qui</div>
+      <div class="day-name">Sex</div>
+      <div class="day-name">Sáb</div>
+
+      <!-- Exemplo de dias -->
+      <div class="day">29</div>
+      <div class="day">30</div>
+      <div class="day today">1</div>
+      <div class="day">2</div>
+      <div class="day">3</div>
+      <div class="day">4</div>
+      <div class="day">5</div>
+      <div class="day">6</div>
+      <div class="day">7</div>
+      <div class="day">8</div>
+      <div class="day">9</div>
+      <div class="day">10</div>
+      <div class="day">11</div>
+      <div class="day">12</div>
+      <div class="day">13</div>
+      <div class="day">14</div>
+      <div class="day">15</div>
+      <div class="day">16</div>
+      <div class="day">17</div>
+      <div class="day">18</div>
+      <div class="day">19</div>
+      <div class="day">20</div>
+      <div class="day">21</div>
+      <div class="day">22</div>
+      <div class="day">23</div>
+      <div class="day">24</div>
+      <div class="day">25</div>
+      <div class="day">26</div>
+      <div class="day">27</div>
+      <div class="day">28</div>
+      <div class="day">29</div>
+      <div class="day">30</div>
+      <div class="day">31</div>
+      <div class="day">1</div>
+      <div class="day">2</div>
+    </div>
+  </div>
+</body>
+</html>
