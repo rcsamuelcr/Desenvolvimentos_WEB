@@ -1,13 +1,49 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Primerio Site</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+    <title>Lista de Estudantes</title>
+    <link rel="stylesheet" href="../static/styles/style.css">
 </head>
-<body>
-    <h1>Olá Mundo!</h1>
-</body>
-</html>
 
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1 class="t-center">Lista de Estudantes</h1>
+                <a class="btn-add" href="add.html">Adicionar Estudantes</a>
+            </div>
+            <div class="col-xs-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="t-center">Nome</th>
+                            <th class="t-center">Idade</th>
+                            <th class="t-center">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>João da Silva</td>
+                            <td class="t-center">52</td>
+                            <td class="d-flex content-center">
+                                <a href="edit.html">
+                                    <img class="icon" src="../static/images/edit.png"
+                                        alt="icon edit">
+                                </a>
+                                <a href="#">
+                                    <img class="icon" src="../static/images/bin.png"
+                                        alt="icon delete">
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

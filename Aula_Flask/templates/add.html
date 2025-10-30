@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Adicionar Estudante</title>
+    <link rel="stylesheet" href="../static/styles/style.css">
+</head>
+
+<body>
+    <h1>Adicionar Estudante</h1>
+    <form method="POST">
+        <div>
+            <label for="primeiro_nome">Informe seu primeiro nome:</label>
+            <input type="text" name="primeiro_nome" required><br>
+        </div>
+        <div>
+            <label for="ultimo_nome">Informe seu ultimo nome:</label>
+            <input type="text" name="ultimo_nome" required><br>
+        </div>
+        <div>
+            <label for="idade">Idade:</label>
+            <input type="number" name="idade" required><br>
+        </div>
+        <div class="d-flex space-between">
+            <button type="submit">Adicionar</button>
+            <a href="index.html">Voltar</a>
+        </div>
+    </form>
+</body>
+
+</html>
