@@ -25,9 +25,10 @@
                         </tr>
                     </thead>
                     <tbody>
+                        {% for e in estudantes %}
                         <tr>
-                            <td>João da Silva</td>
-                            <td class="t-center">52</td>
+                            <td>{{e.primeiro_nome}} {{e.ultimo_nome}}</td>
+                            <td class="t-center">{{e.idade}}</td>
                             <td class="d-flex content-center">
                                 <a href="edit">
                                     <img class="icon" src="../static/images/edit.png"
@@ -39,6 +40,7 @@
                                 </a>
                             </td>
                         </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>
